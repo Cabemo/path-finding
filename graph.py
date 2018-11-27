@@ -115,3 +115,32 @@ class Graph:
                     csv.writerow([values[0].group, values[0].id, values[1].id, values[2]])
                     abarcador.append([values[0].group, values[0].id, values[1].id, values[2]])
                 ab_tabla.write(tabulate(abarcador, headers=['Cluster','Node','Parent','Distance'],tablefmt='simple'))
+
+    def dijkstra(self, key_a, key_b):
+        self.set_visited(False)
+        nodes = {x: (1000000, key_a) for x in list(self.grafo.keys())}
+        nodes[key_a] = (0, None)
+        stack = [key_a]
+        node_id = ''
+        while stack:
+            node_id = stack.pop(0)
+            if node_id == key_b:
+                break
+            node = self.grafo[node_id]
+            if node.visited == True:
+                continue
+            node.visited = True
+            for connection, distance in node.connections.items():
+                stack.append(connection)
+                if distance + nodes[node_id][0] < nodes[connection][0]:
+                    nodes[connection] = (distance + nodes[node_id][0], node_id)
+            stack = sorted(stack, key=lambda x: x[0])
+        for key, value in nodes.items():
+            if value[0] != 1000000:
+                print(key, value)
+        sequence = {}
+        current = key_b
+        while current != key_a:
+            sequence.update({current: nodes[current]})
+            current = nodes[current][1]
+        print(sequence)

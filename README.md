@@ -1,3 +1,3 @@
-# Path Finding
+# Graph
 
-De acuerdo con las datos que obtuvimos para realizar la matriz de adayacencia con la regla de que la conexión sea con una distancia menor a 10,000 km tuvimos que pasar las [coordenadas de latitud y longitud a kilómetros](https://en.wikipedia.org/wiki/Latitude#Length_of_a_degree_of_latitude) para poder aplicar la regla.
+According to the data que obtained we made the adjacency matrix, but quickly realized it was to much of memory cost. So we implemented a list adjacency as objects in order to store other important values. The condition of relation is that the distance between stations is less than 10,000 km. Since we had our information in latitude and longitude we changed [latitude and longitude coordinates to kilometers](https://en.wikipedia.org/wiki/Latitude#Length_of_a_degree_of_latitude) in order to apply the rule.
