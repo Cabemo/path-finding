@@ -1,4 +1,4 @@
-  Group  Node     Parent      Distance
+  Cluster  Node     Parent      Distance
 -------  -------  --------  ----------
       1  E05553   E05553             0
       1  E06926   E05553          3067
